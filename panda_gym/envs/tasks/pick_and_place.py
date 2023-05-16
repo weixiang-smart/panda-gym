@@ -53,9 +53,7 @@ class PickAndPlace(Task):
         # position, rotation of the object
         object_position = self.sim.get_base_position("object")
         object_rotation = self.sim.get_base_rotation("object")
-        object_velocity = self.sim.get_base_velocity("object")
-        object_angular_velocity = self.sim.get_base_angular_velocity("object")
-        observation = np.concatenate([object_position, object_rotation, object_velocity, object_angular_velocity])
+        observation = np.concatenate([object_position, object_rotation])
         return observation
 
     def get_achieved_goal(self) -> np.ndarray:
